@@ -45,6 +45,7 @@ test:
 #
 production:
   <<: *default
-  database: fresh_img_production
-  username: fresh_img
-  password: <%= ENV['FRESH_IMG_DATABASE_PASSWORD'] %>
+  database: d5oo8c5cgl3nu0
+  username: mzllwhwqwpsobx
+  password: iKIOuEJBsJLJuxRk-iuQ5wXmOg
+  url: <%= ENV['DATABASE_URL'] %>
