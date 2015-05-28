@@ -13,6 +13,6 @@
 
 <% end %>
 
-
+<%= link_to "delete", @post, :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
