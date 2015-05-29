@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User List</h1>
+
+	<table class="user_table">
+	    <% @users.each do |user| %>
+	      <tr>
+	      	<th><%= user.id%></th>
+	        <th><%=link_to user.name, show_user_registration_path(user),:class=>:show %></th>
+	        <th><%= link_to "delete", delete_user_registration_path(user),:method=>:delete, :class=>:destroy ,  data: {confirm: "Are you sure?"}  %></th>
+	        
+	      </tr>
+	    <% end %>
+ 	</table>
+
+
+<br>

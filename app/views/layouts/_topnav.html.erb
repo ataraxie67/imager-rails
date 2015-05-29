@@ -2,7 +2,7 @@
 <% if admin_signed_in? %>
 	 
 	<%= link_to('Admin Logout', destroy_admin_session_path, :method => :delete) %>        
-	  
+	 <%= link_to('user index', index_user_registration_path ) %>   
 <% else %>
 		
 	<% if user_signed_in? %>

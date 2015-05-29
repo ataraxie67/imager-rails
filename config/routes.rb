@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admins
   #devise_for :users, controllers: { sessions: "users/sessions" }
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }   
   resources :posts
+  devise_scope :user do
+  get '/users' => 'users/registrations#index', as:'index_user_registration'
+  get '/users/:id' => 'users/registrations#show', as:'show_user_registration'
+  delete '/users/:id' => 'users/registrations#destroy', as:'delete_user_registration'
+  end 
+  #resources :users, :only => [:destroy]
+  #match '/users/:id', :to => 'users#destroy', :as => :destroy_user, :via => :delete
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
