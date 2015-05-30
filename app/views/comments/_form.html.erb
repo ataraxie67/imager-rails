@@ -1,0 +1,25 @@
+<%= form_tag({:controller => "comments",:post_id=>post.id, :action => "create"}, :method=>'post',:post_id => post.id, :commit=>"Create Comment") do %>
+  
+  <div class="field">
+   
+    <%= text_area_tag :body %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "submit" %>
+  </div>
+<% end %>
+
+
+<%if false %>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  
+  <div class="field">
+   
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%end%>

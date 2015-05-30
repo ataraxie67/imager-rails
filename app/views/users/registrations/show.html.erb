@@ -5,9 +5,25 @@
 
 <% @user.posts.each do |post| %>
         <%=link_to image_tag(post.avatar.url(:thumb)), post %>
-        <%= link_to "delete", post, :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
+        <%if current_user == @user or admin_signed_in?%>
+  			<%= link_to "del",post, :method=>:delete,:class=>:destroy , data: {confirm: "Are you sure?"}  %>
+ 
+
+		<%end%>
+        
 <% end %>
 
+<% @user.comments.each do |comment| %>
+        <p><strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> :</strong>
+		  <%= comment.body %>
+		  <%= comment.body %>
+		  <%= time_ago_in_words(comment.created_at) %> ago
+		  <%if current_user == comment.user or admin_signed_in?%>
+		  
+		  <%= link_to "delete", comment, :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
+  		<% end %>
+        </p>
+<% end %>
 
 
 

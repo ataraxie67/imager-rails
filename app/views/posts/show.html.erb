@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
+
   <strong>Title:</strong>
   <%= @post.title %>
-  <%= @post.user.name %>
+  <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
 </p>
 <%= image_tag @post.avatar.url %>
 
@@ -13,5 +14,14 @@
 <%= image_tag @post.avatar.url(:thumb) %>
 
 <% end %>
+<%=render 'comments/form' , post:@post%> 
+<%=render 'comments/show' , post:@post%> 
+
+ 
+
+ 
+
+
 <%= render 'posts/postEdit'%>
+
 <%= link_to 'Back', posts_path %>

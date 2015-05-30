@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :posts do
+    resources :comments
+  end
+  resources :comments
   devise_for :admins
   #devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :users, controllers: { registrations: "users/registrations" }   
@@ -46,8 +50,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end
