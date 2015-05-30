@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -26,16 +27,18 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
-
-    respond_to do |format|
+    #  @post = Post.new(post_params)
+   # respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        #format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        #format.json { render :show, status: :created, location: @post }
+        render json: { message: "success", fileID: @post.id }, status: 200
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        render json: { error: @post.errors.full_messages.join(',')}, status: 400
+        #format.html { render :new }
+        #format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # PATCH/PUT /posts/1
