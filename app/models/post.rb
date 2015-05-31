@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
-	scope :recent_comments, -> {order(created_at: :desc)}
+	scope :recent_posts, -> {order(created_at: :desc)}
 	belongs_to :user
 	validates :user_id, presence:true
 	validates :avatar, presence:true

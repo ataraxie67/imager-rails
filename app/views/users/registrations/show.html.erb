@@ -3,7 +3,7 @@
   <%= @user.name + "'s posts"  %>
 </p>
 
-<% @user.posts.each do |post| %>
+<% @user.posts.recent_posts.each do |post| %>
         <%=link_to image_tag(post.avatar.url(:thumb)), post %>
         <%if current_user == @user or admin_signed_in?%>
   			<%= link_to "del",post, :method=>:delete,:class=>:destroy , data: {confirm: "Are you sure?"}  %>
@@ -13,7 +13,7 @@
         
 <% end %>
 
-<% @user.comments.each do |comment| %>
+<% @user.comments.recent_comments.each do |comment| %>
         <p><strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> :</strong>
 		  <%= comment.body %>
 		  <%= comment.body %>

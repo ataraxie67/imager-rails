@@ -24,5 +24,7 @@ $(document).ready(function(){
   dropzone.on("queuecomplete", function() {
     this.options.autoProcessQueue = false;
     this.removeAllFiles();
+    document.getElementById('userPage').click();
   });
+  
 });

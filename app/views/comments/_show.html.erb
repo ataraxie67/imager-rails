@@ -1,6 +1,6 @@
 
 
-<% post.comments.order("comments.created_at desc").each do |comment| %>
+<% post.comments.recent_comments.each do |comment| %>
     <p>
   
   <strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> </strong>

@@ -1,5 +1,5 @@
 <h2>upload images</h2>
 
 <%= render 'form' %>
-
+<%=link_to current_user.name, show_user_registration_path(current_user),:class=>:show, id:'userPage'  %>
 <%= link_to 'Back', posts_path %>
