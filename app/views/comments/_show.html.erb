@@ -1,8 +1,10 @@
-<% post.comments.each do |comment| %>
+
+
+<% post.comments.order("comments.created_at desc").each do |comment| %>
     <p>
   
-  <strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> :</strong>
-  <%= comment.body %>
+  <strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> </strong>
+  <%= comment.body %> |
   <%= time_ago_in_words(comment.created_at) %> ago
   <%if current_user == comment.user or admin_signed_in?%>
   

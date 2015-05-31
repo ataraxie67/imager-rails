@@ -1,27 +1,30 @@
 
 
 <p>
-
+  <%= link_to 'Back', posts_path %>
   <strong>Title:</strong>
   <%= @post.title %>
   <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
 </p>
-<%= image_tag @post.avatar.url %>
+<div id="image_left">
+	<%= image_tag @post.avatar.url %><br>
+	<%= render 'posts/postEdit'%>
+</div>
+<div id="comments_right">
+	<%=render 'comments/form' , post:@post%> 
+	<%=render 'comments/show' , post:@post%> 
+</div>
 
-<% if false %>
 
-<%= image_tag @post.avatar.url(:preview) %>
-<%= image_tag @post.avatar.url(:thumb) %>
 
-<% end %>
-<%=render 'comments/form' , post:@post%> 
-<%=render 'comments/show' , post:@post%> 
+
+
 
  
 
  
 
 
-<%= render 'posts/postEdit'%>
 
-<%= link_to 'Back', posts_path %>
+
+
