@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 	:path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
 	:url => "/system/:attachment/:id/:basename_:style.:extension",
 	:styles => {
-	  :thumb    => ['200x200#',  :jpg, :quality => 60],
+	  :thumb    => ['200x200#',  :jpg, :quality => 40],
 	  :original    => ['100x720^',      :jpg, :quality => 70]
 	  
 	},
