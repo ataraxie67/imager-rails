@@ -8,16 +8,19 @@
   <div class="subtitle-show">
      
       <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
-   <i class='upvote'>upvote</i>
+   <%=render 'svgheart'%>
    <%end %>
     <%= @post.up_votes %>
-         
+         <span class="whitespace"></span>
     <%= link_to post_vote_path(@post, vote: false), method: 'post' do %>
-      <i class='downvote'>downvote</i>
+      <%=render 'blackheart'%>
+      
     <%end %>
     <%= @post.down_votes %>
+    <span class="whitespace"></span>
     <%= render 'posts/postEdit'%>
        </span>
+       <span class="whitespace"></span>
       <span class="user-right-show"> uploaded by <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
       </span>
       </div>
