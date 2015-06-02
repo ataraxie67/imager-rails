@@ -30,8 +30,8 @@ $green-c: #70c1b3;
 .image_left {
  // @include responsiveimage;
   //@include imageborder;
-
-  width: 100%;
+  margin:0 auto;
+  width: auto;
   position:relative;
   margin-bottom:10px;
    img {
@@ -99,11 +99,12 @@ margin-left:10px;
    }
 }
 .subtitle-show {
-  position: absolute; 
-  bottom: 15px;
+  position: relative; 
+  bottom: 25px;
    right: 0;
    width: 100%;
    height: auto;
+   text-align: center;
    a{
         color: blue-c;
         &:visited {
@@ -122,7 +123,6 @@ margin-left:10px;
     }
 
    .user-right-show{
-    float: right;
     font: 1.0em Helvetica, Sans-Serif; 
     letter-spacing: -1px;  
     color: blue-c; 
@@ -137,7 +137,7 @@ margin-left:10px;
     width:97%;
     
   }
-  .image_left {
+.left_pane{
     clear:left;
     width:auto; 
     max-width:100%}
@@ -146,14 +146,14 @@ margin-left:10px;
   .comments_right {
   	float:right;
     
-    height: 100%;
-    
+    height: 80vh;
+    overflow:auto;
     width: 30%;
-    
+    padding-right:10px;
   }
-  .image_left {
+ .left_pane {
     float:left;
-    
+    height:auto;
     width: 66%;
   }
 

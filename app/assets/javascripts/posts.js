@@ -8,7 +8,8 @@ $(document).ready(function(){
     addRemoveLinks: true, // don't show remove links on dropzone itself.
     autoProcessQueue: false,
     parallelUploads: 10,
-    acceptedFiles: "image/*"
+    acceptedFiles: "image/*",
+    maxFiles: 10
   });
 
   dropzone.on("success", function(file) {

@@ -1,4 +1,6 @@
-<%= render 'posts/index'%>
+
+<% @current_posts= Post.all.sort_by(&:vote_score).reverse %>
+<%= render 'posts/index', posts:@current_posts%>
 
 <br>
 

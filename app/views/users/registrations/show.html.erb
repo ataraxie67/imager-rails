@@ -1,29 +1,20 @@
 <p>
-  
-  <%= @user.name + "'s posts"  %>
+  posts by
+  <%= @user.name  %>
 </p>
+<div class ="left_pane">
+<% @current_posts= @user.posts.recent_posts%>
+<%= render 'posts/index', posts:@current_posts%>
+<div style="clear: both;"></div><br>
+</div>
 
-<% @user.posts.recent_posts.each do |post| %>
-        <%=link_to image_tag(post.avatar.url(:thumb)), post %>
-        <%if current_user == @user or admin_signed_in?%>
-  			<%= link_to "del",post, :method=>:delete,:class=>:destroy , data: {confirm: "Are you sure?"}  %>
- 
-
-		<%end%>
-        
-<% end %>
-
-<% @user.comments.recent_comments.each do |comment| %>
-        <p><strong>	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> :</strong>
-		  <%= comment.body %>
-		  <%= comment.body %>
-		  <%= time_ago_in_words(comment.created_at) %> ago
-		  <%if current_user == comment.user or admin_signed_in?%>
-		  
-		  <%= link_to "delete", comment, :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
-  		<% end %>
-        </p>
-<% end %>
+<div class=" comments_right">
+<p>comments by 
+ <%= @user.name %></p>
+ <% show_post = true%>
+<%@current_comments=  @user.comments.recent_comments%>
+<%=render 'comments/show' , comments:@current_comments,show_post:show_post%> 
+</div>
 
 
 

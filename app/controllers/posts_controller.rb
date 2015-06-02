@@ -1,15 +1,19 @@
 class PostsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  helper_method :show_post2
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-    @post = Post.new
     @post_index = true
   end
+  def show_post2
 
+
+      @post = Post.find(158)
+    
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show

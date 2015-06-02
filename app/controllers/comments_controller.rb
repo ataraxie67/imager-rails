@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show]
+  helper_method :show_post2
   before_action :set_user, only: [:show, :destroy]
   #before_action :set_post, only: [:show, :destroy]
   before_filter :require_permission, only: [:edit, :update, :destroy]
@@ -8,7 +10,12 @@ class CommentsController < ApplicationController
   def index
     @comments = Comment.all
   end
+  def show_post2
 
+
+      @post = Post.find(158)
+    
+  end
   # GET /comments/1
   # GET /comments/1.json
   def show
@@ -82,10 +89,7 @@ class CommentsController < ApplicationController
 
       @user = User.find(@comment[:user_id])
     end
-    def set_post
-
-      @post = Post.find(@comment[:commentable_id])
-    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.permit(:user_id, :commentable_id, :commentable_type)

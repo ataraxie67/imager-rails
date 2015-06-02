@@ -15,20 +15,22 @@ textarea#body {
 .comment-back1{
 	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
 	color:$gray-c; 
+	margin-bottom:5px;
 	background-color:white;
 	padding:10px 10px 5px 10px;
-	-webkit-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
-  	-moz-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
-  	box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+	-webkit-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
+  	-moz-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
+  	box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
 }
 .comment-back2{
 	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
 	color:$gray-c; 
+	margin-bottom:5px;
 	background-color:$yellow-c;
 	padding:10px 10px 5px 10px;
-	-webkit-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
-  	-moz-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
-  	box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+	-webkit-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
+  	-moz-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
+  	box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
 }
 .comment-footer{
 	font: normal normal normal 11px/1 "Baumans", Helvetica, sans-serif;
@@ -38,4 +40,17 @@ textarea#body {
 
 .user-name a{
 	font: normal normal bold 11px/1 "Baumans", Helvetica, sans-serif;
+}
+
+.thumb_comment{
+	float:left;
+	margin-right:7px;
+	border: solid 3px $gray-c;
+	width:40px;
+	height:40px;
+	
+}
+.comment_body{
+	float:right;
+	display:block;
 }

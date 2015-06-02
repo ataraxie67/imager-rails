@@ -2,7 +2,8 @@
 
 
   
-<div class="image_left">
+<div class="left_pane">
+  <div class="image_left">
 	<%= image_tag @post.avatar.url %>
   <div class="subtitle-show">
      
@@ -15,17 +16,20 @@
       <i class='downvote'>downvote</i>
     <%end %>
     <%= @post.down_votes %>
-
+    <%= render 'posts/postEdit'%>
        </span>
       <span class="user-right-show"> uploaded by <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
       </span>
       </div>
+      </div>
       <div style="clear: both;"></div><br>
-	<%= render 'posts/postEdit'%>
+	
 </div>
 <div class="comments_right">
+  <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
-	<%=render 'comments/show' , post:@post%> 
+  <% @current_comments= @post.comments.recent_comments%>
+	<%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
 </div>
 
 

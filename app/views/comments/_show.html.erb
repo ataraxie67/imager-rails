@@ -1,6 +1,6 @@
 
 <% @counter=true%>
-<% post.comments.recent_comments.each do |comment| %>
+<% comments.each do |comment| %>
    <% if @counter%> 
    	<div class="comment-back1">
    	<% @counter=false%>
@@ -10,17 +10,25 @@
    <%end%>
   
   
-  
+  <%if show_post%>
+    <% post=Post.find(comment.commentable_id)%>
+    <%=link_to image_tag(post.avatar.url(:thumb),:class=>"thumb_comment"), post %>
+     
+
+  <%end%>
+  <div class "comment_body">
   <%= comment.body %> 
   <span class="comment-footer"> <br><br>
   <%= time_ago_in_words(comment.created_at) %>  by 
   <strong class="user-name">	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> </strong>
+  
   <%if current_user == comment.user or admin_signed_in?%>
   
-  <%= link_to "delete", [post,comment], :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
+  <%= link_to "delete", [@post,comment], :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
   
  <%end%>
  	</span>
+  </div>
   </div>  
  <% end %>
 
