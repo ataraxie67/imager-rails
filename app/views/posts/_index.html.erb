@@ -2,7 +2,7 @@
     <div class="thumb">
    
 
-	    <%=link_to image_tag(post.avatar.url(:thumb)), post %>
+	    <%=link_to image_tag(post.avatar.url(:thumb),:size => "200x200"), post %>
 	    <div class="subtitle">
 	    <span class="vote_left"><%= post.up_votes%> up | <%= post.down_votes%> down
 	     </span>
