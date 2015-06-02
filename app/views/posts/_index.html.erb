@@ -1,5 +1,7 @@
 <% @posts.sort_by(&:vote_score).reverse.each do |post| %>
     <div class="thumb">
+   
+
 	    <%=link_to image_tag(post.avatar.url(:thumb)), post %>
 	    <div class="subtitle">
 	    <span class="vote_left"><%= post.up_votes%> up | <%= post.down_votes%> down
@@ -8,7 +10,9 @@
 	    </span>
 	    </div>
 	    <div style="clear: both;"></div>
+	    
+   		 
     </div>
-        
+         
     
 <% end %>

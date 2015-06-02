@@ -1,21 +1,23 @@
-$gray-c: #1a1c19;
+$gray-c: #45433F;
 $red-c: rgba(242,95,92,0.95);
-$yellow-c: #ffe066;
+$yellow-c: #fff7e2;
 $blue-c: #247ba0;
 $green-c: #70c1b3;
 
 body {
-  background-color: $gray-c;
-  color: #5ca4a9;
+  background-color: #EEE;
+  color: $gray-c;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin:0;
 }
 .content{
-  position:absolute;
-  left:0;
-  top:5%
+  padding-top:60px;
+  padding-left:3%;
+  padding-right:3%;
+  position:relative;
+  
 }
 
 p, ol, ul, td {
@@ -25,16 +27,16 @@ p, ol, ul, td {
 }
 .top_bar{
   background-color: $red-c;
-  padding:0;
-  height:5%;
+  padding:10px;
+  
   width:100%;
   position:fixed;
   left:0;
   top:0;
   z-index:100;
-  -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
-  -moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
-  box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+  // -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+  //-moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+  //box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
 
   a {
   text-decoration: none;
@@ -60,12 +62,12 @@ pre {
 
 a {
   text-decoration: none;
-  color: white;
+  color: $green-c;
   &:visited {
-    color: white;
+    color: $green-c;
   }
   &:hover {
-    color: #004D34;
+    color: $blue-c;
     
   }
 }

@@ -1,8 +1,41 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+$gray-c: #45433F;
+$red-c: rgba(242,95,92,0.95);
+$yellow-c: #fff7e2;
+$blue-c: #247ba0;
+$green-c: #70c1b3;
 textarea#body {
+  position:relative;
   min-width: 100%;
-  height: 30px;
+  height: 40px;
+  font-size:15px;
+}
+.comment-back1{
+	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
+	color:$gray-c; 
+	background-color:white;
+	padding:10px 10px 5px 10px;
+	-webkit-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+  	-moz-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+  	box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+}
+.comment-back2{
+	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
+	color:$gray-c; 
+	background-color:$yellow-c;
+	padding:10px 10px 5px 10px;
+	-webkit-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+  	-moz-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+  	box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.2);
+}
+.comment-footer{
+	font: normal normal normal 11px/1 "Baumans", Helvetica, sans-serif;
+	color:#69665F; 
+	
+}
+
+.user-name a{
+	font: normal normal bold 11px/1 "Baumans", Helvetica, sans-serif;
 }

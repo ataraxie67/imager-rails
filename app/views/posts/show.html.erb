@@ -1,27 +1,29 @@
 
 
-<p>
-  <%= link_to 'Back', posts_path %>
-  <strong>Title:</strong>
-  <%= @post.title %>
-  <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
-  <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
-   <i class='icon-arrow-up'>upvote</i>
+
+  
+<div class="image_left">
+	<%= image_tag @post.avatar.url %>
+  <div class="subtitle-show">
+     
+      <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
+   <i class='upvote'>upvote</i>
    <%end %>
     <%= @post.up_votes %>
          
     <%= link_to post_vote_path(@post, vote: false), method: 'post' do %>
-      <i class='icon-arrow-down'>downvote</i>
+      <i class='downvote'>downvote</i>
     <%end %>
     <%= @post.down_votes %>
 
-
-</p>
-<div id="image_left">
-	<%= image_tag @post.avatar.url %><br>
+       </span>
+      <span class="user-right-show"> uploaded by <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
+      </span>
+      </div>
+      <div style="clear: both;"></div><br>
 	<%= render 'posts/postEdit'%>
 </div>
-<div id="comments_right">
+<div class="comments_right">
 	<%=render 'comments/form' , post:@post%> 
 	<%=render 'comments/show' , post:@post%> 
 </div>

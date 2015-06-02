@@ -1,36 +1,24 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$gray-c: #50514f;
+$gray-c: #45433F;
 $red-c: rgba(242,95,92,0.95);
-$yellow-c: #ffe066;
+$yellow-c: #fff7e2;
 $blue-c: #247ba0;
 $green-c: #70c1b3;
-
-#image_left {
-  float:left;
-  width: auto;
-  img {
-  	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width:100%;
-	max-height:100%;
-  }
-}
-.thumb{
+@mixin imageborder{
   position:relative;
-  background-color: #fff7e2;
+  background-color: white;
   float: left;
   clear:none;
-  overflow:hidden;
-  margin-left:20px;
-  margin-top:20px;
-  padding-left:10px;
-  padding-right:10px;
-  padding-bottom:40px;
-  border:10px solid #fff7e2;
+  overflow:hidden;  
+ 
+  
+}
 
+
+
+@mixin responsiveimage{
   img {
     display: block;
     margin-left: auto;
@@ -38,12 +26,38 @@ $green-c: #70c1b3;
     max-width:100%;
     max-height:100%;
   }
+}
+.image_left {
+  @include responsiveimage;
+  @include imageborder;
+ padding-bottom:10px;
+  width: 100%;
+  -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+  -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+  box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+  margin-bottom:10px;
+  
+  
+}
+.thumb{
+z-index:10;
+padding-bottom:30px;
+
+margin-left:10px;
+  margin-bottom:50px;
+  @include imageborder;
+  @include responsiveimage;
+   -webkit-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.59);
+  -moz-box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.59);
+  box-shadow: -3px 4px 4px 1px rgba(31,21,31,0.59);
+  
 
 }
 .subtitle {
   position: absolute; 
-   top: 85%; 
-   left: 5; 
+    
+   bottom: -15px;
+   right: 0;
    width: 95%;
    height: 20%;
    
@@ -70,31 +84,67 @@ $green-c: #70c1b3;
         &:hover {
           color: $red-c;
          background-color: none;
-  }
+       }
       }
+   }
+}
+.subtitle-show {
+  position: absolute; 
+  bottom: -5px;
+   right: 0;
+   width: 100%;
+   height: auto;
+   a{
+        color: blue-c;
+        &:visited {
+          color: $blue-c;
+        }
+        &:hover {
+          color: $red-c;
+         background-color: none;
+       }
+    }
+    i{
+    font: 1.0em Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    color: blue-c; 
+    margin: 5px;
+    }
+
+   .user-right-show{
+    float: right;
+    font: 1.0em Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    color: blue-c; 
+    margin: 5px;
    }
 }
 
 @media (orientation: portrait){
-  #comments_right {
-  	clear: right;
-    width: 95%;
+  .comments_right {
+    clear:right;
+    padding:1%;
+    width:97%;
     
   }
-  #image_left {
+  .image_left {
     clear:left;
-    width: 95%;
-  }
+    width:auto; 
+    max-width:100%}
 }
-@media (orientation: landscape){
-  #comments_right {
-  	
-    float:right;
+@media (orientation: landscape) and (min-width:800px){
+  .comments_right {
+  	float:right;
+    
+    height: 100%;
+    
     width: 30%;
+    
   }
-  #image_left {
+  .image_left {
     float:left;
-    width: 65%;
+    
+    width: 66%;
   }
 
 }
