@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @post_index = true
   end
 
   # GET /posts/1
@@ -63,6 +64,18 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  def vote
+    @post = Post.find(params[:post_id])
+    #if you already have before_action set up for the preceding line, you can just add :vote there
+    vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    #strong params not needed because keys are hard coded, can parse values out
+      if vote.valid?
+        flash[:notice] = "Your vote was counted."
+      else
+        flash[:notice] = "You can only vote once."
+      end
+    redirect_to :back
   end
 
   private

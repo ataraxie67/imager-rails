@@ -5,6 +5,17 @@
   <strong>Title:</strong>
   <%= @post.title %>
   <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
+  <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
+   <i class='icon-arrow-up'>upvote</i>
+   <%end %>
+    <%= @post.up_votes %>
+         
+    <%= link_to post_vote_path(@post, vote: false), method: 'post' do %>
+      <i class='icon-arrow-down'>downvote</i>
+    <%end %>
+    <%= @post.down_votes %>
+
+
 </p>
 <div id="image_left">
 	<%= image_tag @post.avatar.url %><br>

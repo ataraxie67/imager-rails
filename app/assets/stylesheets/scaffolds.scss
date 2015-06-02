@@ -1,9 +1,21 @@
+$gray-c: #1a1c19;
+$red-c: rgba(242,95,92,0.95);
+$yellow-c: #ffe066;
+$blue-c: #247ba0;
+$green-c: #70c1b3;
+
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: $gray-c;
+  color: #5ca4a9;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin:0;
+}
+.content{
+  position:absolute;
+  left:0;
+  top:5%
 }
 
 p, ol, ul, td {
@@ -11,21 +23,50 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
+.top_bar{
+  background-color: $red-c;
+  padding:0;
+  height:5%;
+  width:100%;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:100;
+  -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+  -moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+  box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+
+  a {
+  text-decoration: none;
+  font: normal normal normal 13px/1 "Baumans", Helvetica, sans-serif;
+  color: $yellow-c;
+  text-align: center;
+  &:visited {
+    color: $yellow-c;
+  }
+  &:hover {
+    color: $blue-c;
+    background-color: none;
+  }
+}
+}
+
 
 pre {
-  background-color: #eee;
+  background-color: white;
   padding: 10px;
   font-size: 11px;
 }
 
 a {
-  color: #000;
+  text-decoration: none;
+  color: white;
   &:visited {
-    color: #666;
+    color: white;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #004D34;
+    
   }
 }
 

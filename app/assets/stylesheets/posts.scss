@@ -1,6 +1,11 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$gray-c: #50514f;
+$red-c: rgba(242,95,92,0.95);
+$yellow-c: #ffe066;
+$blue-c: #247ba0;
+$green-c: #70c1b3;
 
 #image_left {
   float:left;
@@ -13,6 +18,63 @@
 	max-height:100%;
   }
 }
+.thumb{
+  position:relative;
+  background-color: #fff7e2;
+  float: left;
+  clear:none;
+  overflow:hidden;
+  margin-left:20px;
+  margin-top:20px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:40px;
+  border:10px solid #fff7e2;
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+    max-height:100%;
+  }
+
+}
+.subtitle {
+  position: absolute; 
+   top: 85%; 
+   left: 5; 
+   width: 95%;
+   height: 20%;
+   
+   
+   .vote_left{
+    color: blue-c; 
+    float: left;
+    font: 1.3em Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    margin: 5px;
+    
+   }
+   .user_right{
+    float: right;
+    font: 1.3em Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    color: blue-c; 
+    margin: 5px;
+      a{
+        color: blue-c;
+        &:visited {
+          color: $blue-c;
+        }
+        &:hover {
+          color: $red-c;
+         background-color: none;
+  }
+      }
+   }
+}
+
 @media (orientation: portrait){
   #comments_right {
   	clear: right;

@@ -1,7 +1,14 @@
-<% Post.recent_posts.each do |post| %>
-      
-        <%=link_to image_tag(post.avatar.url(:thumb)), post %>
-        
+<% @posts.sort_by(&:vote_score).reverse.each do |post| %>
+    <div class="thumb">
+	    <%=link_to image_tag(post.avatar.url(:thumb)), post %>
+	    <div class="subtitle">
+	    <span class="vote_left"><%= post.up_votes%> up | <%= post.down_votes%> down
+	     </span>
+	    <span class="user_right"><%=link_to post.user.name, show_user_registration_path(post.user),:class=>:show %>
+	    </span>
+	    </div>
+	    <div style="clear: both;"></div>
+    </div>
         
     
 <% end %>
