@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
 	:url => "/system/:attachment/:id/:basename_:style.:extension",
 	:styles => {
 	  :thumb    => ['200x200#',  :jpg, :quality => 40],
-	  :original    => ['100x720^',      :jpg, :quality => 70]
+	  :original    => ['100x1080^',      :jpg, :quality => 70]
 	  
 	},
 	:convert_options => {
