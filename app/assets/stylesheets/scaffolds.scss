@@ -40,11 +40,40 @@ body {
   width:auto;
   
 }
+@media (orientation: portrait){
+
+  .content{
+  position:absolute;
+  width:99vw;
+  height: 100vh;
+  margin:0;
+  padding:0;
+  
+  
+  
+  }
+  .top_bar{
+  position:fixed;
+  height:30px;
+  bottom:0;
+  width:100%;
+  }
+}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+@media (orientation: landscape) {
+  .top_bar{
+  
+ 
+  
+  width:100%;
+  position:fixed;
+  left:0;
+  top:0;}
 }
 .top_bar{
   background-color: $red-c;
@@ -52,8 +81,7 @@ p, ol, ul, td {
   
   width:100%;
   position:fixed;
-  left:0;
-  top:0;
+ 
   z-index:100;
   // -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
   //-moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);

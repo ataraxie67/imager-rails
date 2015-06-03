@@ -21,7 +21,7 @@ $green-c: #70c1b3;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width:100%;
+    max-width:200%;
     max-height:100%;
    
   
@@ -134,13 +134,45 @@ margin-left:10px;
   .comments_right {
     clear:right;
     padding:1%;
-    width:97%;
+    width:95%;
+    display:none;
     
   }
+  
 .left_pane{
-    clear:left;
-    width:auto; 
-    max-width:100%}
+    
+    width:100%;
+    clear:both;
+    left:0;
+    top:0;
+    max-width:100%;
+    position:absolute;
+    }
+.image_left {
+ // @include responsiveimage;
+  //@include imageborder;
+  margin:0 auto;
+  width: 100%;
+  position:relative;
+  
+  //transform: translateY(-50%);
+  margin-bottom:10px;
+   img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:auto;
+    height:auto;
+    padding-bottom:30px;
+    background-color: white;
+    -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+  -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+  box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
+    overflow:hidden;  
+  }
+  
+}
+  
 }
 @media (orientation: landscape) and (min-width:800px){
   .comments_right {
@@ -152,9 +184,51 @@ margin-left:10px;
     padding-right:10px;
   }
  .left_pane {
+    height:80vh;
     float:left;
     height:auto;
     width: 66%;
   }
 
+
+}
+
+@media screen 
+  and (min-device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-min-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+    .comments_right {
+    clear:both;
+    padding:1%;
+    width:97%;
+    
+     }
+    .left_pane{
+    height:80vh;
+    width:80vw;
+    clear:both;
+    width:auto; 
+    max-width:100%}
+
+}
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-min-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+   .comments_right {
+      float:right;
+      height: 80vh;
+      overflow:auto;
+      width: 30%;
+      padding-right:10px;
+    }
+   .left_pane {
+      height:80vh;
+      float:left;
+      height:auto;
+      width: 66%;
+  }
 }
