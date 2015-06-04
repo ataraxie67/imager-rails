@@ -1,9 +1,16 @@
 class Post < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
+	
 	scope :recent_posts, -> {order(created_at: :desc)}
 	scope :upvoted_posts, ->{order(upvote_count: :desc)}
 	scope :commented_posts, ->{order(comments_count: :desc)}
 	scope :viewed_posts, ->{order(impressions_count: :desc)}
+	
+	scope :last_month, ->{where(created_at: 1.months.ago..DateTime.now)}
+	scope :last_week, ->{where(created_at: 10.minutes.ago..DateTime.now)}
+	scope :last_day, ->{where(created_at: 5.minutes.ago..DateTime.now)}
+	scope :last_hour, ->{where(created_at: 1.minutes.ago..DateTime.now)}
+
 	is_impressionable :counter_cache => true, :unique => :user_id
 	belongs_to :user
 	has_many :votes, as: :voteable

@@ -8,7 +8,7 @@
 	    <span class="whitespace"></span>
 	    <%= post.downvote_count%> <%= render 'posts/blackheart'%>
 	     </span>
-	    <span class="user_right"><%=link_to post.user.name, show_user_registration_path(post.user),:class=>:show %>
+	    <span class="user_right"><%=link_to post.user_name, show_user_registration_path(post.user_id),:class=>:show %>
 	    </span>
 	    </div>
 	    <div style="clear: both;"></div>

@@ -75,6 +75,38 @@ p, ol, ul, td {
   left:0;
   top:0;}
 }
+.filters_right{
+  padding:10px;
+  font: normal normal normal 17px/1 "Baumans", Helvetica, sans-serif;
+  li{
+    padding-bottom:10px;
+    list-style:none;
+  }
+  ul{
+    li{
+      padding-left:10px;
+      display:inline;
+
+    }
+    list-style-type:none;
+    padding-bottom:20px;
+    margin:0;
+  }
+  a {
+  text-decoration: none;
+  font: normal normal normal 17px/1 "Baumans", Helvetica, sans-serif;
+  color: $blue-c;
+  letter-spacing: 0.06em;
+  &:visited {
+    color: $blue-c;
+  }
+  &:hover {
+    color: $blue-c;
+    background-color: none;
+  }
+  }
+}
+
 .top_bar{
   background-color: $red-c;
   padding:10px;

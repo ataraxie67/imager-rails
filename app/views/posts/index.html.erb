@@ -1,10 +1,18 @@
-<%= link_to 'sort by votes', {:controller => :posts, :action => :index , :sort_id => "votes"} %>
-<%= link_to 'sort by date', {:controller => :posts, :action => :index , :sort_id => "date"} %>
-<%= link_to 'sort by views', {:controller => :posts, :action => :index , :sort_id => "views"} %>
-<%= link_to 'sort by comments', {:controller => :posts, :action => :index , :sort_id => "comments"} %>
-<br>
-<%= render 'posts/index', posts:@posts%>
 
-<br>
+
+
+
+
+<div class="fixed_right_pane">
+<%= form_tag("/posts", method: "get") do %>
+  <%= select_tag(:sort_id, options_for_select([['views', "viewed_posts"], ['votes', "upvoted_posts"], ['date', "recent_posts"],['comments', "commented_posts"]])) %>
+   <%= select_tag(:filter_id, options_for_select([['last month', "last_month"], ['last week', "last_week"], ['last day', "last_day"],['last hour', "last_hour"]])) %>
+  <%= submit_tag("Filter") %>
+<% end %>
+
+</div>
+<div class="fixed_left_pane">
+<%= render 'posts/index', posts:@posts%>
+</div>
 
 

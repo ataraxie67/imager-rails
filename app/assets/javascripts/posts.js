@@ -11,11 +11,15 @@ $(document).ready(function(){
     acceptedFiles: "image/*",
     maxFiles: 10
   });
+  dropzone.on("maxfilesreached", function(file){
 
-  dropzone.on("success", function(file) {
-    
-    $.getScript("/posts");
+    file.previewContainer.style.display="none";
   })
+  dropzone.on("maxfilesexceeded", function(file){
+
+    file.previewContainer.style.display="none";
+  })
+ 
   $('#imgsubbutt').click(function(){           
      dropzone.processQueue();
   });

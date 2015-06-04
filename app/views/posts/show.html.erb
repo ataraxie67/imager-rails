@@ -21,14 +21,14 @@
     <%= render 'posts/postEdit'%> <%= @post.impressions_count %> views <span class="whitespace"></span> <%= @post.comments_count %> comments <span class="whitespace"></span> 
        </span>
        <span class="whitespace"></span>
-      <span class="user-right-show"> uploaded by <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>
+      <span class="user-right-show"> uploaded by <%=link_to @post.user_name, show_user_registration_path(@post.user),:class=>:show %>
       </span>
       </div>
       </div>
       <div style="clear: both;"></div><br>
 	
 </div>
-<div class="comments_right">
+<div class="right_pane">
   <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.recent_comments%>

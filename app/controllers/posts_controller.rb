@@ -6,20 +6,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    
-    case params[:sort_id]
-    when "votes"
-      @posts = Post.all.upvoted_posts
-    when "views"
-      @posts = Post.all.viewed_posts
-    when "date"
-      @posts = Post.all.recent_posts
-    when "comments"
-      @posts = Post.all.commented_posts
+    if params[:filter_id].present?
+      @posts= Post.all.send(params[:filter_id]).send(params[:sort_id])
     else
-      @posts= Post.all.recent_posts
+      @posts=Post.all.upvoted_posts
     end
-    @post_index = true
+    
   end
  
   # GET /posts/1
@@ -40,6 +32,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @post.user_name = current_user.name
     #  @post = Post.new(post_params)
    # respond_to do |format|
       if @post.save
@@ -103,7 +96,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :avatar, :sort_id)
+      params.require(:post).permit(:title, :avatar, :sort_id, :filter_id)
     end
     def require_permission
       if user_signed_in?
