@@ -7,9 +7,9 @@ class Post < ActiveRecord::Base
 	scope :viewed_posts, ->{order(impressions_count: :desc)}
 	
 	scope :last_month, ->{where(created_at: 1.months.ago..DateTime.now)}
-	scope :last_week, ->{where(created_at: 10.minutes.ago..DateTime.now)}
-	scope :last_day, ->{where(created_at: 5.minutes.ago..DateTime.now)}
-	scope :last_hour, ->{where(created_at: 1.minutes.ago..DateTime.now)}
+	scope :last_week, ->{where(created_at: 1.weeks.ago..DateTime.now)}
+	scope :last_day, ->{where(created_at: 1.days.ago..DateTime.now)}
+	scope :last_hour, ->{where(created_at: 1.hours.ago..DateTime.now)}
 
 	is_impressionable :counter_cache => true, :unique => :user_id
 	belongs_to :user
