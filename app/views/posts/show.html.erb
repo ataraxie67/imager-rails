@@ -10,15 +10,15 @@
       <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
    <%=render 'svgheart'%>
    <%end %>
-    <%= @post.up_votes %>
+    <%= @post.upvote_count %>
          <span class="whitespace"></span>
     <%= link_to post_vote_path(@post, vote: false), method: 'post' do %>
       <%=render 'blackheart'%>
       
     <%end %>
-    <%= @post.down_votes %>
+    <%= @post.downvote_count %>
     <span class="whitespace"></span>
-    <%= render 'posts/postEdit'%>
+    <%= render 'posts/postEdit'%> <%= @post.impressions_count %> views <span class="whitespace"></span> <%= @post.comments_count %> comments <span class="whitespace"></span> 
        </span>
        <span class="whitespace"></span>
       <span class="user-right-show"> uploaded by <%=link_to @post.user.name, show_user_registration_path(@post.user),:class=>:show %>

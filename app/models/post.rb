@@ -1,7 +1,10 @@
 class Post < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
 	scope :recent_posts, -> {order(created_at: :desc)}
-	
+	scope :upvoted_posts, ->{order(upvote_count: :desc)}
+	scope :commented_posts, ->{order(comments_count: :desc)}
+	scope :viewed_posts, ->{order(impressions_count: :desc)}
+	is_impressionable :counter_cache => true, :unique => :user_id
 	belongs_to :user
 	has_many :votes, as: :voteable
 	validates :user_id, presence:true
@@ -10,13 +13,13 @@ class Post < ActiveRecord::Base
 	:path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
 	:url => "/system/:attachment/:id/:basename_:style.:extension",
 	:styles => {
-	  :thumb    => ['200x200#',  :jpg, :quality => 40],
-	  :original    => ['100x1080^',      :jpg, :quality => 70]
+	  :thumb    => ['200x200#',  :jpg],
+	  :original    => ['100x1080^',      :jpg]
 	  
 	},
 	:convert_options => {
-	  :thumb    => '-set colorspace sRGB -strip',
-	  :original   => '-set colorspace sRGB -strip'
+	  :thumb    => '-set colorspace sRGB -strip -quality 80',
+	  :original   => '-set colorspace sRGB -strip -quality 60'
 	}
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 	def total_votes

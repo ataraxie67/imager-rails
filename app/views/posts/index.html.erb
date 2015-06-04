@@ -1,6 +1,9 @@
-
-<% @current_posts= Post.all.sort_by(&:vote_score).reverse %>
-<%= render 'posts/index', posts:@current_posts%>
+<%= link_to 'sort by votes', {:controller => :posts, :action => :index , :sort_id => "votes"} %>
+<%= link_to 'sort by date', {:controller => :posts, :action => :index , :sort_id => "date"} %>
+<%= link_to 'sort by views', {:controller => :posts, :action => :index , :sort_id => "views"} %>
+<%= link_to 'sort by comments', {:controller => :posts, :action => :index , :sort_id => "comments"} %>
+<br>
+<%= render 'posts/index', posts:@posts%>
 
 <br>
 

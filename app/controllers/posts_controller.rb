@@ -2,18 +2,26 @@ class PostsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   helper_method :show_post2
+  impressionist :action=> [:show], :unique => [:impressionable_type, :impressionable_id, :session_hash]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    
+    case params[:sort_id]
+    when "votes"
+      @posts = Post.all.upvoted_posts
+    when "views"
+      @posts = Post.all.viewed_posts
+    when "date"
+      @posts = Post.all.recent_posts
+    when "comments"
+      @posts = Post.all.commented_posts
+    else
+      @posts= Post.all.recent_posts
+    end
     @post_index = true
   end
-  def show_post2
-
-
-      @post = Post.find(158)
-    
-  end
+ 
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -75,6 +83,11 @@ class PostsController < ApplicationController
     vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
     #strong params not needed because keys are hard coded, can parse values out
       if vote.valid?
+        if vote.vote?
+          Post.increment_counter(:upvote_count,@post.id)
+        else 
+          Post.increment_counter(:downvote_count,@post.id)
+        end
         flash[:notice] = "Your vote was counted."
       else
         flash[:notice] = "You can only vote once."
@@ -90,7 +103,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :avatar)
+      params.require(:post).permit(:title, :avatar, :sort_id)
     end
     def require_permission
       if user_signed_in?

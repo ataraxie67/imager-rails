@@ -4,9 +4,9 @@
 
 	    <%=link_to image_tag(post.avatar.url(:thumb),:size => "200x200"), post %>
 	    <div class="subtitle">
-	    <span class="vote_left"><%= post.up_votes%> <%= render 'posts/svgheart'%>
+	    <span class="vote_left"><%= post.upvote_count%> <%= render 'posts/svgheart'%>
 	    <span class="whitespace"></span>
-	    <%= post.down_votes%> <%= render 'posts/blackheart'%>
+	    <%= post.downvote_count%> <%= render 'posts/blackheart'%>
 	     </span>
 	    <span class="user_right"><%=link_to post.user.name, show_user_registration_path(post.user),:class=>:show %>
 	    </span>

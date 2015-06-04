@@ -1,21 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_post, only: [:show]
+  
   helper_method :show_post2
   before_action :set_user, only: [:show, :destroy]
-  #before_action :set_post, only: [:show, :destroy]
+  
   before_filter :require_permission, only: [:edit, :update, :destroy]
   # GET /comments
   # GET /comments.json
   def index
     @comments = Comment.all
   end
-  def show_post2
-
-
-      @post = Post.find(158)
-    
-  end
+  
   # GET /comments/1
   # GET /comments/1.json
   def show
@@ -40,6 +35,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
+        Post.increment_counter(:comments_count, post.id)
         format.html { redirect_to post, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -66,12 +62,13 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    
+    post=Post.find(params[:post_id])
+    Post.decrement_counter(:comments_count, post.id)
     @comment.destroy
+
     respond_to do |format|
       if params[:post_id]
-        set_post
-      format.html { redirect_to @post, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to post, notice: 'Comment was successfully destroyed.' }
       else
         format.html { redirect_to show_user_registration_path(@user), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
