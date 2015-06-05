@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   helper_method :show_post2
   impressionist :action=> [:show], :unique => [:impressionable_type, :impressionable_id, :session_hash]
-  autocomplete :tag, :name
   # GET /posts
   # GET /posts.json
   def index

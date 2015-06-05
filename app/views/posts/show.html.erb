@@ -29,7 +29,10 @@
 	
 </div>
 <div class="right_pane">
-  <%= @post.all_tags%>
+
+  <% @post.tags.each do |tag|%>
+    <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %>
+  <%end%>
   <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.recent_comments%>
