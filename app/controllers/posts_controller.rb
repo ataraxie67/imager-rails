@@ -3,14 +3,32 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   helper_method :show_post2
   impressionist :action=> [:show], :unique => [:impressionable_type, :impressionable_id, :session_hash]
+  autocomplete :tag, :name
   # GET /posts
   # GET /posts.json
   def index
-    if params[:filter_id].present?
-      @posts= Post.all.send(params[:filter_id]).send(params[:sort_id])
-    else
-      @posts=Post.all.upvoted_posts
+    @posts= Post.all
+    if params[:tag].present?
+      begin
+          @posts=@posts.tagged_with(params[:tag]).send(params[:sort_id])
+      rescue
+          flash[:notice] = "No posts for your search tag found."
+      end
     end
+    if params[:filter_id].present?
+      @posts=@posts.send(params[:filter_id])
+    else
+      @posts=@posts.last_month
+    end
+    
+    if params[:sort_id].present?
+       @posts=@posts.send(params[:sort_id])
+      
+    else
+      @posts=@posts.upvoted_posts
+
+    end
+    @tags= Tag.all.order_count
     
   end
  
@@ -96,7 +114,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :avatar, :sort_id, :filter_id)
+      params.require(:post).permit(:title, :avatar, :sort_id, :filter_id,:all_tags)
     end
     def require_permission
       if user_signed_in?

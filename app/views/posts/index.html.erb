@@ -7,9 +7,16 @@
 <%= form_tag("/posts", method: "get", autocomplete:"on") do %>
   <%= select_tag(:sort_id, options_for_select([['views', "viewed_posts"], ['votes', "upvoted_posts"], ['date', "recent_posts"],['comments', "commented_posts"]])) %>
    <%= select_tag(:filter_id, options_for_select([['last month', "last_month"], ['last week', "last_week"], ['last day', "last_day"],['last hour', "last_hour"]])) %>
+   <br>
+   <%= text_field_tag(:tag, nil , placeholder:'search tag') %>
   <%= submit_tag("Filter") %>
 <% end %>
-
+<div class="tags-cloud">
+  <% @tags.each do |tag| %>
+  <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %>
+  <%end%>
+ 
+</div>
 </div>
 <div class="fixed_left_pane">
 <%= render 'posts/index', posts:@posts%>

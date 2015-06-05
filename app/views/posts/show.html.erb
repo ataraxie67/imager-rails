@@ -29,6 +29,7 @@
 	
 </div>
 <div class="right_pane">
+  <%= @post.all_tags%>
   <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.recent_comments%>
