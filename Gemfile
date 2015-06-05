@@ -5,10 +5,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'kaminari'
 gem 'rails4-autocomplete'
 gem 'puma'
 gem 'paperclip'
 gem 'devise'
+
 gem 'dropzonejs-rails'
 gem 'js-routes'
 gem 'impressionist'

@@ -1,0 +1,2 @@
+$('.fixed_left_pane').append("<%= escape_javascript render(:partial => 'index') %>");
+$('.pagination').replaceWith('<%= escape_javascript  paginate @posts %>');

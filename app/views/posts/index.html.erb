@@ -19,7 +19,16 @@
 </div>
 </div>
 <div class="fixed_left_pane">
-<%= render 'posts/index', posts:@posts%>
+  
+	<%= render 'posts/index', posts:@posts%>
+  
+<br>
+<div class="pagination">
+<%= paginate @posts %>
 </div>
+<%= page_entries_info @posts %>
+
+</div>
+
 
 

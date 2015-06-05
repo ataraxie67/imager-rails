@@ -27,6 +27,7 @@ class PostsController < ApplicationController
       @posts=@posts.upvoted_posts
 
     end
+    @posts=@posts.page(params[:page]).per(40)
     @tags= Tag.all.order_count
     
   end

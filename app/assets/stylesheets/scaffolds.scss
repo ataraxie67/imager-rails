@@ -34,10 +34,10 @@ body {
 }
 .content{
   padding-top:60px;
-  padding-left:3%;
-  padding-right:3%;
+  margin:auto;
   position:relative;
   width:auto;
+  max-width:1500px;
   
 }
 @media (orientation: portrait){

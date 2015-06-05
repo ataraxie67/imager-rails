@@ -31,5 +31,16 @@ $(document).ready(function(){
     this.removeAllFiles();
     document.getElementById('userPage').click();
   });
+   
+    
+    $(window).scroll(function() {
+      var url = $('.next').attr('href');
+      if (url && $('.fixed_left_pane').scrollTop() >50) {
+        console.log ('kommt hin');
+        return $.getScript(url);
+      }
+    });
+    
+  
   
 });

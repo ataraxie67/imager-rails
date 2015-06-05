@@ -13,6 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = @user.posts.recent_posts
   end
 
   # GET /posts/new
