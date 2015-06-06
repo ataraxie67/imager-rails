@@ -4,8 +4,14 @@
   
 <div class="left_pane">
   <div class="image_left">
+
 	<%= image_tag @post.avatar.url %>
-  <div class="subtitle-show">
+  </div>
+  
+
+  
+      <div style="clear: both;"></div><br>
+	 <div class="subtitle-show">
      
       <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
    <%=render 'svgheart'%>
@@ -21,18 +27,32 @@
     <%= render 'posts/postEdit'%> <%= @post.impressions_count %> views <span class="whitespace"></span> <%= @post.comments_count %> comments <span class="whitespace"></span> 
        </span>
        <span class="whitespace"></span>
-      <span class="user-right-show"> uploaded by <%=link_to @post.user_name, show_user_registration_path(@post.user),:class=>:show %>
+      <span class="user-right-show"> @ <%=link_to @post.user_name, show_user_registration_path(@post.user),:class=>:show %>
       </span>
-      </div>
-      </div>
-      <div style="clear: both;"></div><br>
-	
+      <span class="whitespace"></span>
+      <label class="zoomin"> +
+      </label>
+      <span class="whitespace"></span>
+      <label class="zoomout"> -
+      </label>
+       <span class="whitespace"></span>
+      <label class="reset"> []
+      </label>
+      <span class="whitespace"></span>
+      <label class="rotateleft"> <-
+      </label>
+      <span class="whitespace"></span>
+      <label class="rotateright"> ->
+      </label>
+    </div>
 </div>
 <div class="right_pane">
+tags :
 
   <% @post.tags.each do |tag|%>
-    <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %>
+    <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %> ,
   <%end%>
+  <br>
   <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.recent_comments%>

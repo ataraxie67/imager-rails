@@ -9,18 +9,21 @@ class PostsController < ApplicationController
     @posts= Post.all
     if params[:tag].present?
       begin
+          @filter="hello"
           @posts=@posts.tagged_with(params[:tag]).send(params[:sort_id])
       rescue
           flash[:notice] = "No posts for your search tag found."
       end
     end
     if params[:filter_id].present?
+      @filter="hello"
       @posts=@posts.send(params[:filter_id])
     else
       @posts=@posts.last_month
     end
     
     if params[:sort_id].present?
+       @filter="hello"
        @posts=@posts.send(params[:sort_id])
       
     else

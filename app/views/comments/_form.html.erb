@@ -1,4 +1,5 @@
 <% if user_signed_in?%>
+New Comment
 <%= form_tag({:controller => "comments",:post_id=>post.id, :action => "create"}, :method=>'post',:post_id => post.id, :commit=>"Create Comment") do %>
   
   <div class="field">

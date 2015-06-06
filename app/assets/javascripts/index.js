@@ -13,5 +13,7 @@ $(document).on('page:change',function(){
     });
     return $('.fixed_left_pane').scroll();
   }
-  
+ $('input[type=submit]').on('click',function(){
+      console.log("foo");
+  });
 });

@@ -1,10 +1,5 @@
-
-
-
-
-
 <div class="fixed_right_pane">
-<%= form_tag("/posts", method: "get", autocomplete:"on") do %>
+<%= form_tag("/posts", method: "get") do %>
   <%= select_tag(:sort_id, options_for_select([['views', "viewed_posts"], ['votes', "upvoted_posts"], ['date', "recent_posts"],['comments', "commented_posts"]])) %>
    <%= select_tag(:filter_id, options_for_select([['last month', "last_month"], ['last week', "last_week"], ['last day', "last_day"],['last hour', "last_hour"]])) %>
    <br>
@@ -23,11 +18,10 @@
 	<%= render 'posts/index', posts:@posts%>
   
 <br>
+
+</div>
 <div class="pagination">
 <%= paginate @posts %>
-</div>
-<%= page_entries_info @posts %>
-
 </div>
 
 

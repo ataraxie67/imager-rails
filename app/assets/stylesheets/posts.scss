@@ -33,15 +33,17 @@ $green-c: #70c1b3;
   margin:0 auto;
   width: auto;
   position:relative;
-  margin-bottom:10px;
+  overflow:auto;
+  height:calc(100vh - (120px));
    img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width:100%;
+    margin:auto;
+    width:auto;
+    height:auto;
     max-height:100%;
-    padding-bottom:30px;
-    background-color: white;
+    max-width: 100%;
+    min-height:200px;
+
     -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
   -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
   box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
@@ -100,7 +102,7 @@ margin-left:10px;
 }
 .subtitle-show {
   position: relative; 
-  bottom: 25px;
+    background-color:white;
    right: 0;
    width: 100%;
    height: auto;
@@ -163,7 +165,6 @@ margin-left:10px;
     margin-right: auto;
     width:auto;
     height:auto;
-    padding-bottom:30px;
     background-color: white;
     -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
   -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
@@ -181,16 +182,21 @@ div.filters_right li a{
 @media (orientation: landscape) and (min-width:800px){
   .right_pane {
   	float:right;
-    
-    height: 80vh;
+    background-color:white;
+    -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
+    -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
+    box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
+    height:calc(100vh - (130px));
     overflow:auto;
+    padding: 10px;
     width: 30%;
     padding-right:10px;
   }
  .left_pane {
-    height:90vh;
+    height:calc(100vh - (120px));
     float:left;
-    overflow:auto;
+    overflow:none;
+    margin:5px;
     width: 66%;
   }
   .fixed_left_pane{

@@ -1,0 +1,22 @@
+$gray-c: #45433F;
+$red-c: rgba(242,95,92,0.95);
+$yellow-c: #fff7e2;
+$blue-c: #247ba0;
+$green-c: #70c1b3;
+svg{
+  height:20px;
+  width: 20px;
+  display:inline;
+  .heart{
+  fill:$red-c;
+  }
+  .heart:hover{
+  fill:red;
+  }
+  .black_heart{
+  fill:$gray-c;
+  }
+  .black_heart:hover{
+  fill:black;
+  }
+}
