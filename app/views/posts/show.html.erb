@@ -18,11 +18,11 @@
    <%end %>
     <%= @post.upvote_count %>
          <span class="whitespace"></span>
-    <%= link_to post_vote_path(@post, vote: false), method: 'post' do %>
+    <%= link_to post_vote_path(@post, vote: false), method: 'post', remote: true  do %>
       <%=render 'blackheart'%>
       
-    <%end %>
-    <%= @post.downvote_count %>
+    <%end %> <span id="downvotecount">
+    <%= @post.downvote_count %> </span>
     <span class="whitespace"></span>
     <%= render 'posts/postEdit'%> <%= @post.impressions_count %> views <span class="whitespace"></span> <%= @post.comments_count %> comments <span class="whitespace"></span> 
        </span>
@@ -55,9 +55,13 @@ tags :
   <%end%>
   <br>
   <%show_post=false%>
+
 	<%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.eager.recent_comments%>
+  Comments:
+  <div class="comments_show">
 	<%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
+  </div>
 </div>
 
 

@@ -1,6 +1,6 @@
 <% if user_signed_in?%>
 New Comment
-<%= form_tag({:controller => "comments",:post_id=>post.id, :action => "create"}, :method=>'post',:post_id => post.id, :commit=>"Create Comment") do %>
+<%= form_tag({:controller => "comments",:post_id=>post.id, :action => "create"}, :method=>'post',:post_id => post.id, :commit=>"Create Comment", :remote =>true) do %>
   
   <div class="field">
    

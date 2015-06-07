@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 
+	scope :eager_scope , ->{includes(:votes)}
 	scope :recent_posts, -> {order(created_at: :desc)}
 	scope :upvoted_posts, ->{order(upvote_count: :desc)}
 	scope :commented_posts, ->{order(comments_count: :desc)}
