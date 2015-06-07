@@ -30,20 +30,20 @@
       <span class="user-right-show"> @ <%=link_to @post.user_name, show_user_registration_path(@post.user),:class=>:show %>
       </span>
       <span class="whitespace"></span>
-      <label class="zoomin"> +
-      </label>
+      <button class="zoomin"> +
+      </button>
       <span class="whitespace"></span>
-      <label class="zoomout"> -
-      </label>
+      <button class="zoomout"> -
+      </button>
        <span class="whitespace"></span>
-      <label class="reset"> []
-      </label>
+      <button class="reset"> []
+      </button>
       <span class="whitespace"></span>
-      <label class="rotateleft"> <-
-      </label>
+      <button class="rotateleft"> <-
+      </button>
       <span class="whitespace"></span>
-      <label class="rotateright"> ->
-      </label>
+      <button class="rotateright"> ->
+      </button>
     </div>
 </div>
 <div class="right_pane">
@@ -55,7 +55,7 @@ tags :
   <br>
   <%show_post=false%>
 	<%=render 'comments/form' , post:@post%> 
-  <% @current_comments= @post.comments.recent_comments%>
+  <% @current_comments= @post.comments.eager.recent_comments%>
 	<%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
 </div>
 

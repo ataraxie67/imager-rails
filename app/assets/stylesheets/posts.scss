@@ -33,7 +33,13 @@ $green-c: #70c1b3;
   margin:0 auto;
   width: auto;
   position:relative;
-  overflow:auto;
+  overflow:hidden;
+  padding:5px;
+  background-color:#222222;
+  border-radius: 9px 9px 9px 9px;
+  -moz-border-radius: 9px 9px 9px 9px;
+  -webkit-border-radius: 9px 9px 9px 9px;
+  border: 6px double white;
   height:calc(100vh - (120px));
    img {
     display: block;
@@ -42,7 +48,8 @@ $green-c: #70c1b3;
     height:auto;
     max-height:100%;
     max-width: 100%;
-    min-height:200px;
+    min-height:50%;
+   
 
     -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
   -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
@@ -104,6 +111,7 @@ margin-left:10px;
   position: relative; 
     background-color:white;
    right: 0;
+   padding:5px;
    width: 100%;
    height: auto;
    text-align: center;
@@ -165,6 +173,8 @@ margin-left:10px;
     margin-right: auto;
     width:auto;
     height:auto;
+    min-height:50%;
+    
     background-color: white;
     -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);
   -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.59);

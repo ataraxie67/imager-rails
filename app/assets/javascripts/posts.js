@@ -31,5 +31,6 @@ $(document).ready(function(){
     this.removeAllFiles();
     document.getElementById('userPage').click();
   });
+  
    
 });

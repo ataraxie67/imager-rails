@@ -45,6 +45,31 @@ body {
   width:100%;
   }
 }
+button {
+  -webkit-border-radius: 48;
+  -moz-border-radius: 48;
+  border-radius: 48px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 15px;
+  font-weight:100;
+  background: #ffffff;
+  padding: 5px 9px 5px 9px;
+  border: solid #f23f3f 1px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: $red-c;
+  text-decoration: none;
+  color:white;
+}
+button:focus {
+  outline:none;
+  text-decoration: none;
+  
+}
+
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;

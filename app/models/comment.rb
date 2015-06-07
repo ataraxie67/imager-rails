@@ -6,4 +6,5 @@ class Comment < ActiveRecord::Base
   validates :commentable_id, presence:true
   validates :commentable_type, presence:true
   scope :recent_comments, -> {order(created_at: :desc)}
+  scope :eager , ->{includes(:user)}
 end
