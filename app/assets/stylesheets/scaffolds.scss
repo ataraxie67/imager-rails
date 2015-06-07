@@ -18,8 +18,9 @@ body {
   margin:auto;
 }
 .content{
-  padding-top:60px;
+  padding:60px 20px 20px 20px;
   margin:auto;
+  
   position:relative;
   width:auto;
   max-width:1500px;
@@ -120,10 +121,12 @@ p, ol, ul, td {
 
 .top_bar{
   background-color: $red-c;
-  height:30px;
+  height:25px;
   width:100%;
   position:fixed;
- 
+  padding:5px;
+  letter-spacing: 2px;  
+  text-align: center;
   z-index:100;
   // -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
   //-moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
