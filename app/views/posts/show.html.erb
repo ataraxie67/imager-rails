@@ -13,10 +13,11 @@
       <div style="clear: both;"></div><br>
 	 <div class="subtitle-show">
      
-      <%= link_to post_vote_path(@post, vote: true), method: 'post' do %>
+      <%= link_to post_vote_path(@post, vote: true), method: 'post' , remote: true do %>
    <%=render 'svgheart'%>
    <%end %>
-    <%= @post.upvote_count %>
+   <span id="upvotecount">
+    <%= @post.upvote_count %> </span>
          <span class="whitespace"></span>
     <%= link_to post_vote_path(@post, vote: false), method: 'post', remote: true  do %>
       <%=render 'blackheart'%>
@@ -45,7 +46,8 @@
       <button class="rotateright"> ->
       </button>
     </div>
-    </div>
+    
+
 </div>
 <div class="right_pane">
 tags :
@@ -56,14 +58,14 @@ tags :
   <br>
   <%show_post=false%>
 
-	<%=render 'comments/form' , post:@post%> 
+  <%=render 'comments/form' , post:@post%> 
   <% @current_comments= @post.comments.eager.recent_comments%>
   Comments:
   <div class="comments_show">
-	<%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
+  <%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
+  </div>
   </div>
 </div>
-
 
 
 

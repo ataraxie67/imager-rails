@@ -3,38 +3,60 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $gray-c: #45433F;
 $red-c: rgba(242,95,92,0.95);
-$yellow-c: #fff7e2;
+$yellow-c: #ffffee;
 $blue-c: #247ba0;
 $green-c: #70c1b3;
 textarea#body {
   position:relative;
   min-width: 100%;
   height: 40px;
-  font-size:15px;
+  font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
+  letter-spacing: 1.6px;
 }
-.comment-back1{
-	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
-	color:$gray-c; 
-	margin-bottom:5px;
 
-	padding:10px 10px 5px 10px;
-	-webkit-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
-  	-moz-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
-  	box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
-}
-.comment-back2{
+.comment-back{
 	font: normal normal normal 14px/1 "Baumans", Helvetica, sans-serif;
 	color:$gray-c; 
-	margin-bottom:5px;
-	background-color:$yellow-c;
-	padding:10px 10px 5px 10px;
-	-webkit-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
-  	-moz-box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
-  	box-shadow: -3px 2px 2px 1px rgba(31,21,31,0.2);
+	margin:5px 5px 10px 5px;
+	
+	
+	
 }
 .comment-footer{
-	font: normal normal normal 11px/1 "Baumans", Helvetica, sans-serif;
-	color:#69665F; 
+	font: normal normal normal 8px/1 "Baumans", Helvetica, sans-serif;
+	
+	
+	//border-bottom:solid $red-c 1px;
+	border-top:solid $red-c 1px;
+	width:100%;
+	height:10px;
+	padding:3px;
+	letter-spacing: 1.3px;
+	
+}
+.comment-header{
+	font: normal normal normal 10px/1 "Baumans", Helvetica, sans-serif;
+	color:$gray-c; 
+	
+	//border-bottom:solid $red-c 1px;
+	//border-right:solid $red-c 1px;
+	width:100%;
+	height:10px;
+	padding:3px;
+	letter-spacing: 1.3px;
+	
+	
+}
+.comment-body{
+	font: normal normal normal 12px/1 "Baumans", Helvetica, sans-serif;
+	color:$gray-c; 
+	
+	width:100%;
+	letter-spacing: 1.6px;
+	padding:5px 5px 5px 10px;
+	font-weight:100;
+	border-bottom:solid $gray-c 1px;
+	
 	
 }
 
@@ -49,8 +71,4 @@ textarea#body {
 	width:40px;
 	height:40px;
 	
-}
-.comment_body{
-	float:right;
-	display:block;
 }

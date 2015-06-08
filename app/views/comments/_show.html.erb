@@ -1,13 +1,8 @@
 
-<% @counter=true%>
+
 <% comments.each do |comment| %>
-   <% if @counter%> 
-   	<div class="comment-back1">
-   	<% @counter=false%>
-   <%else%>
-   	<div class="comment-back2">
-   	<% @counter=true%>
-   <%end%>
+   
+   <div class="comment-back">
   
   
   <%if show_post%>
@@ -16,20 +11,28 @@
      
 
   <%end%>
-  <div class "comment_body">
-  <%= comment.body %> 
-  <span class="comment-footer"> <br><br>
-  <%= time_ago_in_words(comment.created_at) %>  by 
-  <strong class="user-name">	<%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> </strong>
+   <div class="comment-header"> 
+   
+  <strong class="user-name">  <%=link_to comment.user.name, show_user_registration_path(comment.user),:class=>:show %> </strong>
   
+  
+  </div>
+  <div class= "comment-body">
+  
+  <%= comment.body %>
+  <br>
+
+  </div>
+ <div class="comment-footer"> 
+  <%= time_ago_in_words(comment.created_at) %> ago
   <%if current_user == comment.user or admin_signed_in?%>
   
   <%= link_to "delete", [@post,comment], :method=>:delete, :class=>:destroy , data: {confirm: "Are you sure?"}  %>
   
  <%end%>
- 	</span>
   </div>
-  </div>  
+  </div>
+   
  <% end %>
 
 

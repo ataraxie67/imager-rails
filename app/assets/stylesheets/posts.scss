@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $gray-c: #45433F;
 $red-c: rgba(242,95,92,0.95);
-$yellow-c: #fff7e2;
+$yellow-c: #ffffe2;
 $blue-c: #247ba0;
 $green-c: #70c1b3;
 @mixin imageborder{
@@ -30,19 +30,15 @@ $green-c: #70c1b3;
 .image_left {
  // @include responsiveimage;
   //@include imageborder;
-  margin:0 auto;
-  width: auto;
+  float:left;
+  width: 70%;
   position:relative;
   overflow:hidden;
-  -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
-    -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
-    box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
   background-color:#222222;
-  border-radius: 9px 9px 9px 9px;
-  -moz-border-radius: 9px 9px 9px 9px;
-  -webkit-border-radius: 9px 9px 9px 9px;
-  border: 6px double white;
-  height:calc(100vh - (120px));
+  height:95%;
+  padding:10px;
+  
+  
    img {
     display: block;
     margin:auto;
@@ -196,24 +192,22 @@ div.filters_right li a{
 }
 @media (orientation: landscape) and (min-width:800px){
   .right_pane {
-  	float:right;
-    background-color:white;
-    -webkit-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
-    -moz-box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
-    box-shadow: -3px 4px 15px 1px rgba(31,21,31,0.1);
-    height:calc(100vh - (130px));
+    position:relative;
+    float:right;
+    background-color:rgba(249,249,249,0.9);
+    height:95%;
     overflow:auto;
-    padding: 10px;
-    width: 30%;
-    padding-right:10px;
-    margin-top:11px;
+    padding: 10px 30px 10px 10px;
+    width: 25%;
+    
+    
   }
  .left_pane {
     height:calc(100vh - (120px));
     float:left;
     overflow:none;
     margin:5px;
-    width: 66%;
+    width: 100%;
 
   }
   .fixed_left_pane{

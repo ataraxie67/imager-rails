@@ -1,1 +1,2 @@
-$('#downvotecount').html("<%= @post.votes.count%>");
+$('#downvotecount').html("<%= @post.downvote_count%>");
+$('#upvotecount').html("<%= @post.upvote_count%>");

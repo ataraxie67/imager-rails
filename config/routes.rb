@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :comments
   devise_for :admins
   devise_for :users, controllers: { registrations: "users/registrations" }   
+
   resources :posts
   devise_scope :user do
   get '/users' => 'users/registrations#index', as:'index_user_registration'
