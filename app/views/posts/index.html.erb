@@ -14,15 +14,22 @@
 </div>
 </div>
 <div class="fixed_left_pane">
-  
+ 
 	<%= render 'posts/index', posts:@posts%>
-  
-<br>
+ 
 
+
+</div>
+<div style="clear:both;"></div>
+<div id="bottom-button">
+<button id="next-page"> load more</button>
 </div>
 <div class="pagination">
 <%= paginate @posts %>
+
+
 </div>
+
 
 
 

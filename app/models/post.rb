@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
-	has_many :taggings
+	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
 
 	scope :eager_scope , ->{includes(:votes)}
@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
 	:path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
 	:url => "/system/:attachment/:id/:basename_:style.:extension",
 	:styles => {
-	  :thumb    => ['200x200#',  :jpg],
+	  :thumb    => ['x300', :jpg],
 	  :original    => ['100x1080^',      :jpg]
 	  
 	},

@@ -9,7 +9,7 @@ $green-c: #70c1b3;
   display:inline-block;
 }
 body {
-  background-color: #EEE;
+  background-color: rgb(40,40,40);
   color: $gray-c;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -18,14 +18,26 @@ body {
   margin:auto;
 }
 .content{
-  padding:60px 20px 20px 20px;
+  padding:20px 20px 20px 20px;
   margin:auto;
-  
+  background:white;
   position:relative;
   width:auto;
-  max-width:1500px;
-  height: calc(100% - (50px));
+  max-width:1200px;
+  height: auto;
   
+}
+.pagination{
+  display:none;
+}
+#next-page{
+  margin:0 auto;
+  position:relative;
+  width:100%;
+}
+#bottom-buttom{
+  text-align:center;
+  width:100%;
 }
 @media (orientation: portrait){
 
@@ -39,12 +51,7 @@ body {
   
   
   }
-  .top_bar{
-  position:absolute;
-  height:30px;
-  bottom:0;
-  width:100%;
-  }
+  
 }
 button {
   -webkit-border-radius: 48;
@@ -77,16 +84,7 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
-@media (orientation: landscape) {
-  .top_bar{
-  
- 
-  height:30px;
-  width:100%;
-  position:absolute;
-  left:0;
-  top:0;}
-}
+
 .filters_right{
   padding:10px;
   font: normal normal normal 17px/1 "Baumans", Helvetica, sans-serif;
@@ -120,28 +118,48 @@ p, ol, ul, td {
 }
 
 .top_bar{
-  background-color: $red-c;
-  height:25px;
+  
+  height:90px;
   width:100%;
-  position:fixed;
-  padding:5px;
+  position:relative;
+  padding-top:20px;
+  margin:0 auto;
+  max-width:1200px;
   letter-spacing: 2px;  
-  text-align: center;
+  border-bottom: solid $blue-c 1px;
   z-index:100;
-  // -webkit-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
-  //-moz-box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
-  //box-shadow: -3px 4px 28px 1px rgba(31,21,31,0.59);
+ 
+  #Logo{
+    font-family:verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 1;
+    letter-spacing: 4px;
+    margin:20px;
+    float:left; 
+    color:white;
 
+
+
+  }
+  #menu{
+  float: right;
+  margin:20px;
+   border-top: solid $gray-c 1px;
+  }
+  #notice{
+  display:none;
+  }
   a {
   text-decoration: none;
   font: normal normal normal 13px/1 "Baumans", Helvetica, sans-serif;
-  color: $yellow-c;
+  color: white;
+  font-weight:20;
   text-align: center;
   &:visited {
-    color: $yellow-c;
+    color: white;
   }
   &:hover {
-    color: $blue-c;
+    color: $red-c;
     background-color: none;
   }
 }

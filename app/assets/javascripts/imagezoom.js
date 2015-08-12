@@ -174,7 +174,7 @@ $(document)
         }
         rotate('.image_left img');
       });
-    $('.image_left')
+    $('.image_left img')
       .mousedown(function (e) {
         image_mouse_down = true;
         console.log(image_mouse_down);

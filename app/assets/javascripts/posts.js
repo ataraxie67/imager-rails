@@ -7,9 +7,9 @@ $(document).ready(function(){
     paramName: "post[avatar]", // Rails expects the file upload to be something like model[field_name]
     addRemoveLinks: true, // don't show remove links on dropzone itself.
     autoProcessQueue: false,
-    parallelUploads: 25,
+    parallelUploads: 45,
     acceptedFiles: "image/*",
-    maxFiles: 25
+    maxFiles: 45
   });
   dropzone.on("maxfilesreached", function(file){
 

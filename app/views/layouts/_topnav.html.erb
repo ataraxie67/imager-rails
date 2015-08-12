@@ -1,7 +1,10 @@
+
+<div id="Logo"> IMAGER </div>
+<div id="menu">
 <%= link_to('home', root_path) %> <%= render 'posts/newPostButton' %>
 
 <% if admin_signed_in? %>
-	 
+	
 	<%= link_to('Admin Logout', destroy_admin_session_path, :method => :delete) %>        
 	 <%= link_to('user index', index_user_registration_path ) %>   
 <% else %>
@@ -26,4 +29,7 @@
 	<% end %>
 		
 <% end %>
+</div>
+<div id="notice">
 <%= notice %>
+</div>

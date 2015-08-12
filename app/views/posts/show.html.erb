@@ -6,12 +6,26 @@
   <div class="image_left">
 
 	<%= image_tag @post.avatar.url %>
-  
-  
+   <div class="right_pane">
+tags :
 
-  
-      <div style="clear: both;"></div><br>
-	 <div class="subtitle-show">
+  <% @post.tags.each do |tag|%>
+    <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %> ,
+  <%end%>
+  <br>
+  <%show_post=false%>
+
+  <%=render 'comments/form' , post:@post%> 
+  <% @current_comments= @post.comments.eager.recent_comments%>
+  Comments:
+  <div class="comments_show">
+  <%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
+  </div>
+  </div>
+</div>
+
+<div style="clear: both;"></div><br>
+<div class="subtitle-show">
      
       <%= link_to post_vote_path(@post, vote: true), method: 'post' , remote: true do %>
    <%=render 'svgheart'%>
@@ -39,37 +53,14 @@
        <span class="whitespace"></span>
       <button class="reset"> []
       </button>
-      <span class="whitespace"></span>
-      <button class="rotateleft"> <-
-      </button>
-      <span class="whitespace"></span>
-      <button class="rotateright"> ->
-      </button>
     </div>
-    
 
-</div>
-<div class="right_pane">
-tags :
-
-  <% @post.tags.each do |tag|%>
-    <%=link_to  tag.name ,  posts_path( :commit => "Filter" ,:tag => tag.name, :filter_id => "last_month", :sort_id =>"viewed_posts") %> ,
-  <%end%>
-  <br>
-  <%show_post=false%>
-
-  <%=render 'comments/form' , post:@post%> 
-  <% @current_comments= @post.comments.eager.recent_comments%>
-  Comments:
-  <div class="comments_show">
-  <%=render 'comments/show' , comments:@current_comments, show_post:show_post%> 
-  </div>
-  </div>
+	 
+   
 </div>
 
 
-
-
+<div style="clear:both;"></div>
 
  
 
